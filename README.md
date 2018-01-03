@@ -18,3 +18,6 @@ pytesser 调用了 tesseract，因此需要安装 tesseract，安装 tesseract �
 
 >sudo pip install pytesseract
 
+
+
+staruml破解：http://blog.csdn.net/hoo_chsodene/article/details/50741112
