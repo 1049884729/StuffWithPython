@@ -110,12 +110,38 @@ def greedMarth(name):
 def noGreedMarth(name):
     """
     非贪心匹配：在花括号后面加个?
+    re.I忽略大小写
     系统默认贪心算法，即能匹配字符最短的，匹配最短的"""
     pattern=r"(Ha){3,5}?"
-    result=re.compile(pattern).search(name)
+    result=re.compile(pattern,re.I).search(name)
     if result!=None:
         print("noGreedMarth_result:"+result.group())
     else:
         print("匹配不成功")
 greedMarth("HaHaHaHaHa")
-noGreedMarth("HaHaHaHaHa")
+noGreedMarth("HaHaHaHaHahahahhaha")
+
+#用[]定义范围
+
+def explictRange(name):
+    pattern=r"[1233456]"
+    result=re.compile(pattern).findall(name)
+    if result!=None:
+        print(str(result))#匹配全部的内容
+    else:
+        print("匹配不成功")
+explictRange("789456")
+def noExplictRange(name):
+    pattern=r"[^78123]"#匹配不在列表的所有字符
+    result=re.compile(pattern).findall(name)
+    if result!=None:
+        print(str(result))
+    else:
+        print("匹配不成功")
+noExplictRange("1232789456")
+
+'''
+如果表达式以 ^开始，说明匹配内容必须以 开始； 如果 $结尾，必须以之前的结尾
+
+通配符：句点.只通配一个字符，*匹配所有字符
+'''
