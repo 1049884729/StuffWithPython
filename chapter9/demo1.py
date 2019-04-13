@@ -4,7 +4,10 @@ shutil 模块:文件的复制/移动，改名 删除
 import shutil,os
 # os.chdir("/home/xuff")
 
-os.chdir("/home/xuff/test/")
+try:
+    os.chdir("/home/xuff/test/")
+except :
+    print("error")
 #"""retree方法比较文献"""
 # shutil.rmtree()
 
