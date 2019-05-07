@@ -28,7 +28,6 @@ def downloadAllPaperDate(url, num_retreies):
         content = str(page.decode('utf-8'))
         dateList = content[content.index("[") + 1:-2].replace("\r", "").replace("\n", "").replace("\"", "").split(",")
         length = len(dateList)
-        print(content)
         for paperDate in range(length-1-START,-1,-1):
             try:
                 download(dateList[paperDate], num_retreies)
@@ -98,8 +97,10 @@ def get_Content(url,html):
             printResult(url+"    =="+link.text)
 
 
+
 def downloadPage(date,herf, num_retreies):
     '''
+<<<<<<< HEAD
 
     :param url: 访问地址
     :param num_retreies: 尝试次数
@@ -116,6 +117,7 @@ def downloadPage(date,herf, num_retreies):
         if num_retreies > 0 and hasattr(e, 'code') and 500 <= e.code < 600:
             return downloadPage(url, num_retreies - 1)
 
+
 def printResult(txt):
     data = open("/study/codeSpace/StuffWithPython/data.txt", 'a',encoding='utf-8')
     print(txt+"\n", file=data)
@@ -123,4 +125,4 @@ def printResult(txt):
 
 # download(INDEX_DATE_PAPER, 5)
 downloadAllPaperDate(ALL_PAPER_DATE,2)
-# printResult("dd")
+
